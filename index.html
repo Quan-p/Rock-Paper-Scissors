@@ -20,5 +20,16 @@
         if computerSelection = Scissors and playerSelection = Rock then return string "You win! Rock beats scissors"
     Create a function called game() that loops the function 5 times
 */  
+
+     var playerSelection = prompt("Rock, paper, or scissors?");
+     var playerSelection = playerSelection.toLowerCase();
+     var acceptable = ["rock", "paper", "scissors"];
+     for (i = 0; i < 3; i++) {
+        if (playerSelection.localeCompare(acceptable[0])) {
+            var response = "Please type rock, paper, or scissors.";           
+            console.log(response)
+        } 
+     }
+     
     </script>
 </html>
