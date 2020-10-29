@@ -5,6 +5,7 @@
     Create input box with prompt question "Rock, Paper, or Scissors?"
     Make case of input not matter so that something like rOck and Rock are okay
     Store input into variable playerSelection
+    Whitelist the words "rock", "paper", and "scissors"
     Create function that is a random number generator that picks a number between 1 and 3    
     If statement 
         if 1 then assign the string "Rock" to variable computerSelection
@@ -21,15 +22,20 @@
     Create a function called game() that loops the function 5 times
 */  
 
-     var playerSelection = prompt("Rock, paper, or scissors?");
-     var playerSelection = playerSelection.toLowerCase();
-     var acceptable = ["rock", "paper", "scissors"];
-     for (i = 0; i < 3; i++) {
-        if (playerSelection.localeCompare(acceptable[0])) {
-            var response = "Please type rock, paper, or scissors.";           
-            console.log(response)
-        } 
-     }
+    var playerSelection = prompt("Rock, paper, or scissors?");
+    var playerSelection = playerSelection.toLowerCase();
+    var whiteList = ["rock", "paper", "scissors"];
+    
+    if (whiteList.includes(playerSelection)) {
+        response = "You picked " + playerSelection;
+        console.log(response);
+    } else {
+        response = "Please enter rock, paper or scissors";
+        console.log(response);
+    }
+    
+    
+    
      
     </script>
 </html>
