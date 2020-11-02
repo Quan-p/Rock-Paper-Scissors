@@ -36,6 +36,7 @@
         console.log(response);
     }
 
+
     function computerPlay() {
         var computerSelection = Math.floor(Math.random() * whiteList.length);
         return whiteList[computerSelection];
@@ -47,39 +48,38 @@
             case "rock": 
                 switch(computerSelection) {
                     case "rock":
-                        text = "It's a tie";
+                        text = "Computer chose rock, it's a tie";
                         break;
                     case "paper":
-                        text = "You lose! Paper beats rock";
+                        text = "Computer chose paper you lose! Paper beats rock";
                         break;
                     case "scissors":
-                        text = "You win! Rock beats scissors";
+                        text = "Computer chose scissors you win! Rock beats scissors";
                         break;
                 }
                 break;
             case "paper": 
                 switch(computerSelection) {
                     case "rock":
-                        text = "You win! Paper beats rock";
+                        text = "Computer chose rock you win! Paper beats rock";
                         break;
-                    case "paper":
-                        text = "It's a tie";
-                        break;
-                    case "scissors":
-                        text = "You lose! Scissors beats paper";
-                        break;
+                    case "paper":var computerSelection = computerPlay();
+        function computerPlay() {
+            var computerSelection = Math.floor(Math.random() * whiteList.length);
+            return whiteList[computerSelection];
+        }
                 }
                 break;
             case "scissors": 
                 switch(computerSelection) {
                     case "rock":
-                        text = "You lose! Rock beats scissors";
+                        text = "Computer chose rock, you lose! Rock beats scissors";
                         break;
                     case "paper":
-                        text = "You win! Scissors beats paper";
+                        text = "Computer chose paper, you win! Scissors beats paper";
                         break;
                     case "scissors":
-                        text = "It's a tie";
+                        text = "Computer chose scissors, it's a tie";
                         break;
                 }
                 break;        
@@ -88,6 +88,37 @@
         console.log(text);
         return true    
     }
+// Create function that either loops the game 5 times or repeats function calls for a 5 round game //*
+    
+    function game() {
+        var playerSelection = prompt("Rock, paper, or scissors?");
+        var playerSelection = playerSelection.toLowerCase();
+        var whiteList = ["rock", "paper", "scissors"];
+
+        var computerSelection = computerPlay();
+
+        //while (!(whitelist.includes(playerSelection))) {
+        //    response = "Please enter rock, paper or scissors";
+        //    var playerSelection = prompt("Rock, paper, or scissors?");
+        //}
+        
+        if (whiteList.includes(playerSelection)) {
+            response = "You picked " + playerSelection;
+            var startRound = playRound(playerSelection, computerSelection);
+        } else {
+            response = "Please enter rock, paper or scissors"; 
+        }
+        return response; 
+        
+    }
+    function playGame() {
+        var temp;
+        for(var i = 0; i < 5; i++) {
+            temp = game();
+            console.log(temp);
+        }
+        return true;
+    } 
 
     </script>
 </html>
